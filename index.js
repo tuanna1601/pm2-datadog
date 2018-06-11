@@ -118,9 +118,8 @@ async function start() {
     dogstatsd.gauge('pm2.processes.installed', processes.length);
 
     for (const process of processes) {
-      console.log(process);
       const tags = [
-        `application:${process.name}`,
+        `application:${process.name}_${process.pm_id}`,
         `instance:${process.pm2_env.NODE_APP_INSTANCE}`
       ];
 
